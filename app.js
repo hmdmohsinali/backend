@@ -21,8 +21,8 @@ connectDB();
 // Middleware to parse JSON
 app.use(express.json());
 
-app.use('/api/auth', authRoutes);
-app.use('/api/cars', carRoutes);
+app.use('/auth', authRoutes);
+app.use('/cars', carRoutes);
 
 if (process.env.NODE_ENV !== "production") {
   const PORT = process.env.PORT || 5000;
