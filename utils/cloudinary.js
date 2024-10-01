@@ -1,7 +1,8 @@
 import { v2 as cloudinary } from 'cloudinary';
 import dotenv from 'dotenv';
 
-dotenv.config();  // Loads environment variables from `.env`
+dotenv.config();  
+
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -12,10 +13,10 @@ cloudinary.config({
 export const uploadImage = async (filePath) => {
   try {
     const result = await cloudinary.uploader.upload(filePath, {
-      folder: 'car_images',  // Specify folder in Cloudinary
+      folder: 'car_images',  
     });
-    return result.secure_url;  // Return the secure URL of the image
+    return result.secure_url;  
   } catch (error) {
-    throw new Error('Image upload failed');
+    throw new Error('Cloudinary upload failed');
   }
 };
